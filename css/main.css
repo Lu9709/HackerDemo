@@ -11,6 +11,7 @@ body {
 #code {
     flex: 1;
     overflow-y: scroll;
+    overflow-x:hidden;
 }
 
 #footer {
@@ -20,6 +21,10 @@ body {
 #footer .keyword {
     background: #0f0;
     color: #000;
+}
+
+.show {
+    display: block !important;
 }
 
 #modal {
@@ -46,26 +51,47 @@ body {
     background-color: rgb(43, 107, 43);
     color: #0f0;
 }
+
 #modal .button {
     margin: 0 auto;
 }
+
 .popup {
     position: fixed;
-    left:50%;
-    top:30%;
+    left: 50%;
+    top: 30%;
     transform: translateX(-50%);
-    border:1px solid #878787;
+    border: 1px solid #878787;
     display: none;
     width: 300px;
     text-align: center;
 }
-.popup.popup-denied{
-    display: block;
+
+.popup.popup-denied {
     border-color: #fb0006;
     background-color: #511;
-    color:red;
+    color: red;
 }
-.popup.popup-granted{
-    display: none;
+
+.popup.popup-granted {
     background-color: #262626;
+}
+
+@keyframes  bounce{
+    0% {
+        opacity: 1;
+    }
+    49%{
+        opacity: 1;
+    }
+    51%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#code pre.editable:after{
+    content:'|';
+    animation: bounce 1s linear infinite;
 }
